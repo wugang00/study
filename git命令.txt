@@ -1,0 +1,10 @@
+1.新增文件
+git add *
+git add test.txt
+git add js/test.txt
+
+2.提交commit
+git commit -m '描述'
+
+3.推送代码
+git push origin master
