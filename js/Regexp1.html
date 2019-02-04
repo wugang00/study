@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RegExp</title>
+    <script src="https://www.rrjc.com/js_new/jquery-1.8.3.min.js?20180204"></script>
+</head>
+<body>
+    <span>手机号：</span>  <input id="mobile" type="tel" maxlength="11"><br>
+    <span>密码：</span>    <input id="psd" type="password"><br>
+    <button id="login">登陆</button>
+</body>
+<script>
+    var mobile = document.getElementById('mobile'),
+        psd = document.getElementById('psd'),
+        login = document.getElementById('login');
+    login.onclick = function(){
+        var valMobile = mobile.value,
+            valPsd = psd.value;
+        if (valMobile < 1) {
+            debugger;
+            console.log('手机号未输入');
+            return;
+        };
+        if (!/^1[3579]\d{9}$/.test(valMobile)){
+            debugger;
+            console.log('手机号格式不正确');
+            return;
+        };
+        console.log('手机号正确');
+        if (valPsd < 1){
+            debugger;
+            console.log('密码未输入');
+            return;
+        };
+        console.log('送往服务器验证');
+    };    
+</script>
+</html>
