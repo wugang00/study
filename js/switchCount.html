@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>switch 运算</title>
+</head>
+<body>
+    <input id="text1" type="text">
+    <select id="select">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select> <br>
+    <input id="text2" type="text">
+    <button id="button">=</button> <br>
+    <input id="fruit" type="text">
+    <span>结果</span>
+</body>
+<script>
+    var ect = document.getElementById("button");
+    ect.onclick = function(){
+        var a = document.getElementById("text1").value;
+            b = document.getElementById("text2").value;
+            c = document.getElementById("select").value;
+        switch(c){
+            case "+":
+                v=parseFloat(a)+parseFloat(b);
+                break;
+            case "-":
+                v=a-b;
+                break;
+            case "*": 
+                v=a*b;
+                break; 
+            default:
+                v=a/b;    
+        };
+        document.getElementById("fruit").value=v;
+    };
+</script>
+</html>
