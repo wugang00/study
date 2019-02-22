@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        *{margin:0;padding:0;}	
+        body { font-size: 13px; line-height: 130%; padding: 60px; }
+        #content { width: 220px; border: 1px solid #0050D0;background: #96E555 }
+        span { width: 200px; margin: 10px; background: #666666; cursor: pointer;color:white;display:block;}
+        p {width:200px;background:#888;color:white;height:16px;}
+    </style>
+    <script src="https://www.rrjc.com/js_new/jquery-1.8.3.min.js?20180204"></script>
+    <script>
+        $(function(){
+            //为span绑定click事件
+            $("span").bind("click",function(event){
+                var txt = $("#msg").html()+"<p>内层span元素被单击</p>";
+                $("#msg").html(txt);
+                event.stopPropagation();
+            });
+            //
+            $("#content").bind("click",function(event){       //添加event参数以阻止冒泡
+                var txt = $("#msg").html()+"<p>外层div元素被单击</p>";
+                $("#msg").html(txt);
+                event.stopPropagation();        //停止冒泡
+            });
+            //
+            $("body").bind("click",function(){
+                var txt = $("#msg").html()+"<p>body被单击</p>";
+                $("#msg").html(txt);
+            });
+        })
+
+        $("a").click(function(event){
+            alert(event.type);
+            return false;
+        });
+    </script>
+</head>
+<body>
+    <div id="content">
+        外层div元素
+        <span>内层span元素</span>
+        外层div元素
+    </div>
+    <div id="msg">
+
+    </div>
+    <a href="#">110</a>
+</body>
+</html>

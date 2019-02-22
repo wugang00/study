@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>点击展开&隐藏</title>
+    <script src="https://www.rrjc.com/js_new/jquery-1.8.3.min.js?20180204"></script>
+    <style>
+        *{margin:0;padding:0;}	
+        body { font-size: 13px; line-height: 130%; padding: 60px }
+        #panel { width: 300px; border: 1px solid #0050D0 }
+        .head { height:24px;line-height:24px;text-indent:10px;background: #96E555; cursor: pointer;width:100%; }
+        .content { padding: 10px; text-indent:24px; border-top: 1px solid #0050D0;display:block;display:none; }
+    </style>
+    <script type="text/javascript">
+            $(function(){                          //等待DOM加载完毕
+                $("#panel h5.head").bind("click",function(){       //给标题绑定点击事件
+                var $content = $(this).next();
+                if($content.is(":visible")){    //如果内容是显示的
+                    $content.hide();            //就隐藏
+                }else{
+                    $content.show();            //否则显示
+                }
+                })
+            })
+    </script>
+</head>
+<body>
+    <div id="panel">
+        <h5 class="head">什么是jq</h5>
+        <div class="content">
+            jquery-1是一个继Prototype之后的又一个优秀的js库。
+        </div>
+    </div>
+</body>
+
+</html>
