@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>v-on 绑定事件监听器实例</title>
+  </head>
+
+  <body>
+    <h1>v-on 绑定事件监听器实例</h1>
+    <hr />
+    <div id="app">
+      本场比赛得分：{{fenshu}}
+      <p>
+        <button v-on:click="jiafen">加分</button>  
+        <button @click="jianfen">减分</button>  <br>
+        <input type="text" v-on:keyup.enter="onEnter" v-model="fenshu2 "> 
+      </p>
+    </div>
+    
+
+    <script type="text/javascript">
+      var app = new Vue({
+        el: "#app",
+        data: {
+          fenshu:0,
+          fenshu2:3
+        },
+        methods:{
+          jiafen:function(){
+            this.fenshu++;
+          },
+          jianfen:function(){
+            this.fenshu--;
+          },
+          onEnter:function(){
+            this.fenshu=this.fenshu+parseInt(this.fenshu2);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>component-2props属性设置</title>
+  </head>
+  <body>
+    <h1>component-2props属性设置</h1>
+    <hr />
+    <div id="app">
+     <wutian v-bind:from-here="message"></wutian>
+     <!-- 简写： <wutian :from-here="message"></wutian> -->
+     <!--小驼峰写法-->
+    </div>
+    
+    
+    <!--定义全局组件-->
+
+    <script type="text/javascript">
+      var app = new Vue({
+        el: "#app",
+        data:{
+            message:'china'
+        },
+        components:{
+            "wutian":{
+                template:`<div style="color:green">wutian form {{fromHere}}</div>`,
+                props:['fromHere']
+            }
+        }
+      });
+      
+    </script>
+  </body>
+</html>

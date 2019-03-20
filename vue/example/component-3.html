@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>component-3组件</title>
+  </head>
+  <body>
+    <h1>component-3父子组件关系</h1>
+    <hr />
+    <div id="app">
+      <wutian></wutian>
+    </div>
+    
+    
+    <!--定义全局组件-->
+
+    <script type="text/javascript">
+    var city ={
+      template:`<div style="color:red;">henan of China</div>`
+    }
+    var wutianComponent = {
+      template:`
+        <div>
+          <p>wutian form China</p>
+          <city></city>
+        </div>
+       `,
+       components:{
+         "city":city
+       }
+    }
+    
+      var app = new Vue({
+        el: "#app",
+        components:{
+          "wutian":wutianComponent
+        }
+        
+      });
+      
+    </script>
+  </body>
+</html>
