@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>watch</title>
+  </head>
+  <body>
+    <h1>watch</h1>
+    <hr />
+    <div id="app">
+      <p>今日温度：{{wendu}}°</p>
+      <p>穿衣建议：{{chuanyi}}°</p>
+      <p><button @click="shenggao">升温</button></p>
+      <p><button @click="jiangdi">降温</button></p>
+    </div>
+
+    <script type="text/javascript">   
+        // chuanyiarray=['T恤短袖','夹克长裙','棉衣羽绒服']
+      var app = new Vue({
+        el: "#app",
+        data: {
+          wendu:14,
+          chuanyi:'夹克长裙'
+        },
+        methods:{
+          shenggao:function(){
+              this.wendu+=5;
+          },
+          jiangdi:function(){
+              this.wendu-=5;
+          }
+        },
+        watch:{
+          wendu:function(newVal,oldVal){
+            if(newVal>=26){
+            this.chuanyi="T恤短袖" ;   
+            }else if(newVal<26 &&newVal>0){
+                this.chuanyi="夹克长裙";
+            }
+            else{
+                this.chuanyi="棉衣羽绒服";
+            }
+          }
+        }
+        
+      });
+    </script>
+  </body>
+</html>

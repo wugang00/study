@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> 
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>propsData Option</title>
+  </head>
+  <body>
+    <h1>computed Option</h1>
+    <hr />
+
+    <div id="app">
+        <p>{{newPrice}}</p>
+        <ul>
+            <li v-for="item in reversNews"> {{item.title}}--{{item.date}} </li>
+        </ul>
+    </div>
+
+    <script type="text/javascript">
+        var newsList=[
+            {title:'国务院，标准',date:'2019/3/24'},
+            {title:'专家，百姓',date:'2019/3/25'},
+            {title:'科学杂志，发现',date:'2019/3/25'},
+            {title:'陕西省，免责',date:'2019/3/26'},
+        ]
+         var app = new Vue({
+          el:'#app',
+          data:{
+            price:100,
+            newsList:newsList
+          },
+          computed:{
+            newPrice:function(){
+              return this.price='￥'+this.price+'元';
+            },
+            reversNews:function(){
+                return this.newsList.reverse();
+            }
+          }
+        })
+    </script>
+  </body>
+</html>
+ 
