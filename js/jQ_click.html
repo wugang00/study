@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>移除事件</title>
+    <script src="https://www.rrjc.com/js_new/jquery-1.8.3.min.js?20180204"></script>
+    <script>
+        $(function(){
+            $("#btn").bind("click",myfun1 = function(){
+                $("#test").append("<p>绑定函数1</p>")
+            }).bind("click",myfun2 = function(){
+                $("#test").append("<p>绑定函数2</p>")
+            }).bind("click",myfun3 = function(){
+                $("#test").append("<p>绑定函数3</p>")
+            });
+        });
+        $(function(){
+            $("#delall").bind("click",function(){
+                $("#btn").unbind("click",myfun1);
+            })
+        })
+    </script>
+</head>
+<body>
+    <button id="btn">单击</button>
+    <button id="delall">删除所有事件</button>
+    <div id="test">
+
+    </div>
+</body>
+</html>
