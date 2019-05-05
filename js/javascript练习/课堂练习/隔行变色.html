@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>隔行变色</title>
+    <style>
+        li{
+            width:80px;
+            height:25px;
+            background: black;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <script>
+        var lis = document.getElementsByTagName("li");
+        window.onload=function(){
+            for(var i=0;i<lis.length;i++){
+                if(i%2==0){
+                    lis[i].style.background="red";
+                }else{
+                    lis[i].onmouseover=function(){
+                        this.style.background="blue"
+                    }
+                    lis[i].onmouseout=function(){
+                        this.style.background=""
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

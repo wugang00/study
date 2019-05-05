@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>控制div属性</title>
+    <style>
+        .cen{
+            text-align: center;
+        }
+        .cen #ten{
+            width: 100px;
+            height:100px;
+            background-color:black;
+            margin: 10px auto;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="cen">
+        <button>变宽</button>
+        <button>变高</button>
+        <button>变色</button>
+        <button>隐藏</button>
+        <button>重置</button>
+        <div id="ten"> </div>
+    </div>
+    <script>
+           var changeStyle = function(elem,attr,value){
+               elem.style[attr] = value
+           };
+           window.onload = function(){
+                var oBtn = document.getElementsByTagName("button");
+                var oTen = document.getElementById("ten");
+                var oAtt = ["width","height","background","display","display"];
+                var oVal = ["200px","200px","red","none","block"];
+                for (let i=0; i<oBtn.length;i++){
+                    //按钮的索引
+                    oBtn[i].index=i;
+                    //按钮点击事件
+                    oBtn[i].onclick=function(){
+                        this.index==oBtn.length-1 && (oTen.style.cssText="");
+                        changeStyle(oTen,oAtt[this.index],oVal[this.index])
+                    }
+                }
+            };
+
+            // https://www.jianshu.com/p/2961d9c317a3
+            // http://www.fgm.cc/learn/
+    </script>
+</body>
+</html>

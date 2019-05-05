@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+	<style>
+		div{ width:200px; height: 50px; background: #E5AFB0; display: none}
+		.aa{display: block}
+	</style>
+</head>
+
+<body>
+	<button>11111</button>
+	<button>22222</button>
+	<button>33333</button>
+	<button>44444</button>
+	<button>55555</button>
+	<div>11111</div>
+	<div>22222</div>
+	<div>33333</div>
+	<div>44444</div>
+	<div>55555</div>
+	<script>
+		var btns=document.getElementsByTagName("button");
+		var dd = document.getElementsByTagName("div");
+		for(var i=0;i<btns.length;i++){
+			btns[i].index=i;
+			btns[i].onclick=function(){
+				for(var j=0;j<btns.length;j++){
+					dd[j].style.display=""
+				}
+				dd[this.index].style.display="block"
+			}
+		}
+			
+	</script>
+</body>
+</html>

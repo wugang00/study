@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width:200px;
+            height:200px;
+            display:none;
+            background:red;
+            margin:30px;
+        }
+    </style>
+</head>
+<body>
+    <button>111</button>
+    <button>222</button>
+    <button>333</button>
+
+    <div id="div0">11111</div>
+    <div id="div1">22222</div>
+    <div id="div2">33333</div>
+
+    <script>
+        // var btns=document.getElementsByTagName('button');
+        // var dd=document.getElementsByTagName('div');
+
+        var btns=document.querySelectorAll('button');
+        var dd=document.querySelectorAll('div');
+
+        // for(let i=0; i<btns.length; i++){
+        //     btns[i].onclick=function(){
+        //         dd[i].style.display="block";
+        //     }
+        // }
+
+        for(var i = 0;i<btns.length;i++){
+            (function(i){
+                btns[i].onclick=function(){
+                    dd[i].style.display="block";     
+                }
+            })(i);
+        } 
+
+     
+    </script>
+</body>
+</html>

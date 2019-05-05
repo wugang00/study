@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>人生循环</title>
+
+</head>
+
+<body >
+	
+	
+	<script>
+	for(var i=0;i<100;i++){
+		document.write("<span>" + "我现在" + i + "岁了" + "</span>" + "<br/>");
+
+		  var ans=document.querySelectorAll('span');
+		//var ans=document.getElementsByTagName('span');
+		//效果一样
+
+		if(i%10==0){
+			//var ans=document.querySelectorAll('span');
+			ans[i].style.color="red";
+		}
+		if(i==0){
+			ans[i].innerHTML="出生";
+		}
+		if(i==25){
+			ans[i].innerHTML="结婚";
+			ans[i].style.color="green";
+		}
+		if(i==32){
+			ans[i].innerHTML="喜当爹";
+			ans[i].style.color="green";
+		}
+		if(i==55){
+			ans[i].innerHTML="抱孙子";
+			ans[i].style.color="green";
+		}
+		if(i==99){
+			ans[i].innerHTML="咯屁";
+			ans[i].style.color="green";
+			
+		}
+		
+	}
+	
+	</script>
+</body>
+</html>
