@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{margin:0px;padding:0px;}
+        #cen{
+            width:100px;
+            height:100px;
+            margin: 10px auto;
+        }
+        ul{
+            display: block;
+            border:1px blue solid;
+            width:60px;
+            font-size: 12px;
+            display: none;
+        }
+        li{
+            list-style: none;
+            padding: 5px;
+        }
+        #lis{
+            border-top:1px blue solid;
+        }
+        a{
+            text-decoration: none;
+            display: block;
+            width:60px;
+        }
+        li:hover{
+            background:#00c;
+        }
+    </style>
+</head>
+<body>
+    <div id="cen">
+        <button>输入法</button>
+        <ul id="uls">
+            <li><a href="javascript:;">手写</a></li>
+            <li><a href="javasvript:;">拼音</a></li>
+            <li id="lis"><a href="javascript:;">关闭</a></li>
+        </ul>
+    </div>
+    <script>
+        window.onload=function(){
+            var btns=document.getElementsByTagName("button")[0];
+            var uls=document.getElementById("uls");
+            var lis=document.getElementById("lis");
+            //var style=uls.style;
+            btns.onclick=function(){
+                uls.style.display = uls.style.display == "block"?"none" : "block";
+                //如果 uls.style.display == "block" 就让这个元素显示
+                //否则就隐藏
+            };
+            lis.onclick=function(){
+                uls.style.display="none";
+            }
+        }
+    </script>
+</body>
+</html>

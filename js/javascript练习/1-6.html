@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{margin:0px;padding:0px;}
+        .div1{
+            margin:10px auto;
+            font-size: 12px;
+            width:90px;
+        }
+        input{
+            margin-right:5px;
+            vertical-align:middle; /*对齐*/
+        }
+        .div1 .cen{
+            margin:10px auto;
+            width:200px;
+            height:40px;
+            line-height: 20px;
+            background:yellow;
+            border:1px red solid;
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">
+        <label>123</label>
+        <p><input type="checkbox">checkbox</p>
+        <div class="cen">
+            为了您的信息安全，请不要在网吧或公用电脑上使用此功能！ 
+        </div>
+    </div>
+
+    <script>
+        window.onload=function(){
+            var int = document.getElementsByTagName("p")[0];
+            var cen = document.getElementsByClassName("cen")[0];
+            int.onmouseover=function(){
+                cen.style.display="block";
+            }
+            int.onmouseout=function(){
+                cen.style.display="none";
+            }
+        }
+    </script>
+</body>
+</html>

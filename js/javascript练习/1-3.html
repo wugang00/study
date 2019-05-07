@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p><input type="text" value="河南省"></p>
+    <p><input type="text" value="郑州市"></p>
+    <p><button id="but">传参</button></p>
+
+    <script>
+        function att(a,b){
+            alert(a);      
+            alert(b);
+        }
+        window.onload=function(){
+            var ins=document.getElementsByTagName("input");
+            var btns=document.getElementById("but");
+            btns.onclick=function(){
+                att(ins[0].value,ins[1].value)
+            }
+        }
+    </script>
+</body>
+</html>
