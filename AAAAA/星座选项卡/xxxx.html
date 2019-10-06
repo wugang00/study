@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				font-size: 12px;
+				font-family: "微软雅黑";
+			}
+			.box{
+				width: 350px;
+				height: 250px;
+				border: 1px solid #ccc;
+				margin: 100px auto;
+				padding: 10px;
+			}
+			.dt{
+				padding-left: 10px;
+				line-height: 35px;
+				font-weight: bold;
+				font-size: 16px;
+			}
+			.dd-t{
+				overflow: hidden;
+			}
+			.icon {
+				width: 50px;
+				height: 50px;
+				float: left;
+				background: url(img/icon.gif) no-repeat;
+				margin-right: 10px;
+			}
+			.yunshi {
+				width: 100px;
+				height: 20px;
+				display: inline-block;
+				background: url(img/xingji.png) no-repeat left bottom;
+				position: relative;
+			}
+			.star {
+				width: 0px;
+				height: 20px;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				background: url(img/xingji.png) no-repeat;
+			}
+
+		</style>
+		<script type="text/javascript">
+			window.onload = function  () {
+				function $ (id) {return document.getElementById(id);}    //对象调用函数
+				var arr=[8,3,5,6,9,7,3,4,6,7,1,7];        //运势星级数组
+				var textarr = ["充满希望、和蔼可亲、行动力、活力充沛、诚心诚意、天生长才、勇敢","浪漫、决断能力、逻辑性思考、勤勉、灵巧、热心、忍耐心 、超强的艺术天赋","多样性、洞察力、开朗、反映机智、演技佳、宽大、魅力，善变","第六感、主观、反应佳、想象力、慎重、执着、毅力","自尊心、慈善、权利、思考、保护他人、忠诚心、热情","有板有眼、服务、鉴赏力、完美主义、谦虚、头脑清晰、实际","理想主义、公正、追求、社交手腕强、审美观、魅力、 艺术力强、美丽、善良","神秘、理性、独立、直觉、规律、奉献、观察力 、真正魅力、冥想","理性、勇敢、细心、发展力、活泼、廉耻心、热心 ，可爱、乐观","优越、聪明、实际、野心、可靠、不屈不挠、宽大 、乐观","独创力、宽容、理想、先见之明、友爱、慈善、独立","自觉、唯美的、柏拉图式的爱、幻想、牺牲奉献、 善良、好脾气"];
+//				function fn (yunshi,) {       //星级指数和内容调用函数
+//					$("star").style.width = yunshi*10+"px";
+//					$("content").innerHTML = "浪漫、决断能力、逻辑性思考、勤勉、灵巧、热心、忍耐心 、超强的艺术天赋";
+//				}
+				
+		var sele = document.getElementById("sele");    
+		sele.onchange = function  () {     //切换星座事件
+			$("ico").style.backgroundPosition = (-this.value*50)+"px 0px";
+			$("star").style.width = arr[this.value]*10+"px";
+			$("content").innerHTML = textarr[this.value];
+//					switch(this.value){
+//						case "0":
+//						fn(arr[this.value]);
+//						break;
+//						
+//						case "1":
+//						fn();
+//						break;
+//					}
+		}
+			}
+		</script>
+	</head>
+	<body>
+		<div class="box">
+			<div class="dt">星座运势</div>
+			<div class="dd">
+				<div class="dd-t">
+					<div class="icon" id="ico"></div>
+					<div class="right">
+						<select name="" id="sele">
+							<option value="0">白羊座[03.21-04.19]</option>
+							<option value="1">金牛座[04.21-05.19]</option>
+							<option value="2">双子座[05.21-06.19]</option>
+							<option value="3">巨蟹座[06.21-07.19]</option>
+						</select>
+						<div>今日运势：
+							<span class="yunshi">
+								<span class="star" id="star"></span>
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="dd-b" id="content">这些天我总是发生些，意想不到的事情，一会丢钱了， 
+					一会升职了，总是发生一些很莫名其妙的事情。<a href="#">[查看详情]</a ></div>
+			</div>
+		</div>
+	</body>
+</html>

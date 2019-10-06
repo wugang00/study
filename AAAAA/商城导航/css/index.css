@@ -1,0 +1,136 @@
+*{margin:0;padding:0;}
+ol,dl,li{list-style-type: none;}
+a{text-decoration: none;color:black;}
+
+.menu{
+    width: 220px;
+    display: block;
+    border: 2px solid #e4393c;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.menu .menutitle{
+    height: 40px;
+    line-height: 40px;
+    padding-left: 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 11pt;
+    background: #e4393c;
+}
+.menu li{
+    height: 30px;
+    line-height: 30px;
+    padding-left: 10px;
+    font-size: 11pt;
+    text-align: left;
+    background: url(../img/right.jpg) no-repeat right;
+    z-index: 10;
+}
+.menu .lihover{
+    background: none;
+    border-top:1px solid #ddd;
+    border-bottom:1px solid #ddd;
+    box-shadow: 0 0 8px #ddd;
+    margin: -1px 0;
+}
+.menu .lihover .twomenu{
+    display: block;
+}
+.menu .lihover span{
+    /* display: inline-block; */
+    width: 20px;
+    height: 30px;
+    background: white;
+    z-index: 20;
+    float:right;
+    position: relative;
+}
+.menu li a:hover{
+    color: #e4393c;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* 二级 */
+.twomenu{
+    z-index: 5;
+    width: 715px;
+    position: absolute;
+    left: 222px;
+    top: 40px;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 8px #ddd;
+    background: white;
+    display: none;
+}
+.twomenu .leftbox{
+    float: left;
+    margin: 5px;
+    width: 490px;
+}
+.twomenu .rightbox{
+    float: left;
+    width: 200px;
+    margin: 5px;
+}
+.leftbox dl{
+    border-bottom: 1px solid #eee;
+    padding-bottom: 6px;
+    display: block;
+    overflow: hidden;
+    margin: 15px 0;
+}
+.leftbox dl dt{
+    float: left;
+    display: block;
+    width: 60px;
+    height: 22px;
+    line-height: 22px;
+    text-align: right;
+    padding-right: 6px;
+}
+.leftbox dl dd{
+    display: block;
+    overflow: hidden;
+
+}
+.leftbox dl dt a{
+    color: #e4393c;
+    font-weight: bold;
+    font-size: 10pt;
+    text-decoration: underline;
+}
+.leftbox dl dd a{
+    color: #737373;
+    padding: 0 8px;
+    font-size: 9pt;
+    height: 14px;
+    line-height: 14px;
+    margin: 4px 0;
+    border-left: 1px solid #ccc;
+    display: block;
+    float: left;
+}
+
+.rightbox dl{
+    margin-top:20px;
+}
+.rightbox dl a img{
+    width: 194px;
+    height: 70px;
+}
+.rightbox dl dt{
+    color: #e4393c;
+    font-weight: bold;
+}
+.rightbox dl dd{
+    font-size: 12px;
+    line-height: 22px;
+}
+/* 图片 */
+.pos{
+    position: absolute;
+    right:-20px;
+    bottom:-15px;
+}

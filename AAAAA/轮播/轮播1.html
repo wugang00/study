@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>轮播1</title>
+    <style>
+        *{margin:0;padding:0;}
+        li{list-style: none;}
+        .wrap{
+            position: relative;
+            left: 20px;
+            width: 800px;
+            height: 400px;
+        }
+        .list{
+            width: 800px;
+            height: 400px;
+            position: relative;
+        }
+        .item{
+            width: 100%;
+            height: 100%;
+            font-size: 50px;
+            color: white;
+            position: absolute;
+            /* 透明 */
+            opacity: 0;
+            transition: all .5s;
+        }
+        .pointList{
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            z-index: 100;
+        }
+        .point{
+            width: 8px;
+            height: 8px;
+            float: left;
+            margin-right: 15px;
+            background: rgba(0,0,0,0.4);
+            border-radius: 100%;
+            border: 2px solid rgba(255,255,255,0.6);
+            cursor: pointer;
+        }
+        .btn{
+            width: 40px;
+            height: 100px;
+            position: absolute;
+            top: 150px;
+            z-index: 100;
+            border: none;
+            background: rgba(243,246,252);
+        }
+        .item:nth-child(1){background:black;}
+        .item:nth-child(2){background:red;}
+        .item:nth-child(3){background:goldenrod;}
+        .item:nth-child(4){background:green;}
+        .item:nth-child(5){background:pink;}
+        #getPre{left: 0px;}
+        #getNext{right: 0px;}
+        .active{
+            z-index: 80;
+            opacity: 1;
+        }
+        .actives{
+            background:  rgba(255,255,255,0.6);
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <ul class="list">
+            <li class="item active">0</li>
+            <li class="item">1</li>
+            <li class="item">2</li>
+            <li class="item">3</li>
+            <li class="item">4</li>
+        </ul>
+        <ul class="pointList">
+            <li class="point actives" data-index="0"></li>
+            <li class="point" data-index="1"></li>
+            <li class="point" data-index="2"></li>
+            <li class="point" data-index="3"></li>
+            <li class="point" data-index="4"></li>
+        </ul>
+        <button class="btn" id="getPre"> < </button>
+        <button class="btn" id="getNext">></button>
+    </div>
+
+    <script>
+        var items = document.getElementsByClassName("item");
+            getPre = document.getElementById("getPre");
+            getNext = document.getElementById("getNext");
+            index = 0;
+            points = document.getElementsByClassName("point");
+        // 重置样式
+        var clearActive = function() {
+            for(var i=0; i<items.length; i++) {
+                items[i].className = 'item';
+            };
+            for(var i=0; i<points.length; i++) {
+                points[i].className = 'point';
+            };
+        }; 
+        //添加样式
+        var goIndex = function() {
+            clearActive();
+            items[index].className = 'item active';
+            points[index].className = 'point actives';
+        };
+
+        var goPre = function() {
+            if(index > 0) {
+                index--;
+            } else {
+                index=4;
+            };
+            goIndex();
+        };
+        var goNext = function() {
+            if(index < 4) {
+                index++;
+            } else {
+                index=0;
+            };
+            goIndex();
+        }
+        
+        // 按钮事件
+        getNext.addEventListener('click',function(){
+            goNext();
+        });
+        getPre.addEventListener('click',function(){
+            goPre();
+        });
+
+        for(var i=0; i<points.length; i++) {
+            points[i].addEventListener('click',function(){
+                var pointIndex = this.getAttribute('data-index');
+                index = pointIndex;
+                goIndex();
+            });
+        };
+
+        setInterval(function() {
+            goNext();
+        },2000);
+
+        // 在轮播时，点击了圆点，先暂时停止一会儿定时器 
+        // var tiem = 0;
+        // setInterval(function() {
+        //     time++;
+        //     if(time == 20){
+        //         goNext();
+        //         time = 0;
+        //     }
+        // },100);
+    </script>
+</body>
+</html>

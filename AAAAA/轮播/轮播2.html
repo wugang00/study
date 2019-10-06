@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>轮播2</title>
+    <style>
+        *{margin:0;padding:0;}
+        li{list-style: none;}
+        .box{
+            position: relative;
+            left: 30%;
+            width: 600px;
+            height: 300px;
+            overflow: hidden;
+        }
+        .list{
+            position: absolute;
+            left: 0px;
+        }
+        .list .item{
+            width: 600px;
+            height: 300px;
+            font-size: 50px;
+            color:white;
+            float:left;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+        }
+        .countList{
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            z-index: 100;
+        }
+        .countList .count{
+            width: 8px;
+            height: 8px;
+            float: left;
+            margin-right: 15px;
+            background: white;
+            border-radius: 100%;
+            cursor: pointer;
+        }
+        .btn{
+            position: absolute;
+            top:35%;
+            width: 40px;
+            height: 80px;
+            border: none;
+            outline:none;
+        }
+        #getPre{left: 0;}
+        #getNext{right: 0;}
+        .item:nth-child(1){background:black;}
+        .item:nth-child(2){background:red;}
+        .item:nth-child(3){background:goldenrod;}
+        .item:nth-child(4){background:green;}
+        .item:nth-child(5){background:pink;}
+        .item:nth-child(6){background:blue;}
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul class="list" id="list">
+            <li class="item"><img src="image/01.jpg" alt=""></li>
+            <li class="item">1</li>
+            <li class="item">2</li>
+            <li class="item">3</li>
+            <li class="item">4</li>
+            <li class="item">5</li>
+        </ul>
+        <ul class="countList">
+            <li class="count" data-index="0"></li>
+            <li class="count" data-index="1"></li>
+            <li class="count" data-index="2"></li>
+            <li class="count" data-index="3"></li>
+            <li class="count" data-index="4"></li>
+            <li class="count" data-index="5"></li>
+        </ul>
+        <button class="btn" id="getPre"> < </button>
+        <button class="btn" id="getNext">></button>
+    </div>
+
+    <script>
+        var list = document.getElementById("list");
+            items = document.getElementsByClassName("item");
+            counts = document.getElementsByClassName("count");
+            Long = (items.length-1)*600 //1200
+            getPre = document.getElementById("getPre");
+            getNext = document.getElementById("getNext");
+        var lt = 0;
+        
+        console.log(document.getElementsByClassName("box")[0].offsetWidth);
+        setInterval(function(){
+            toRight();
+        },3000);
+
+        getNext.addEventListener('click',function(){
+            toLeft();
+        });
+        getPre.addEventListener('click',function(){
+            toRight();
+        });
+
+        var toLeft = function() {
+            lt-=600;
+            if(lt>=-Long){
+                list.style.left=lt+"px";
+            } else {
+                lt=0;
+                list.style.left=lt+"px";
+            };
+        };
+        var toRight = function() {
+            lt+=600;
+            if(lt<=0){
+                list.style.left=lt+"px";
+            } else {
+                lt=-Long;
+                list.style.left=lt+"px";
+            };
+        };
+        
+        for(var i=0; i<counts.length; i++) {
+            counts[i].addEventListener('click',function(){
+                var countIndex = this.getAttribute('data-index');
+                list.style.left = -(600*countIndex) +"px";
+                console.log(countIndex*600);
+            });
+        };
+        
+    </script>
+</body>
+</html>
