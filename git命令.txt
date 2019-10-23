@@ -1,10 +1,10 @@
-1.ĞÂÔöÎÄ¼ş
+ï»¿1.æ–°å¢æ–‡ä»¶
 git add *
 git add test.txt
 git add js/test.txt
 
-2.Ìá½»commit
-git commit -m 'ÃèÊö'
+2.æäº¤commit
+git commit -m 'æè¿°'
 
-3.ÍÆËÍ´úÂë
+3.æ¨é€ä»£ç 
 git push origin master

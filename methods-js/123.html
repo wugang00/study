@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="123.js"></script>
+</head>
+<body>
+    <h1>ajax</h1>
+
+    <script>
+        ajax({
+            url: "./TestXHR.aspx",              //请求地址
+            type: "GET",                       //请求方式
+            data: { name: "super", age: 20 },        //请求参数
+            dataType: "json",
+            success: function (response, xml) {
+                // 此处放成功后执行的代码
+                console.log('成功');
+            },
+            fail: function (status) {
+                // 此处放失败后执行的代码
+                console.log('失败');
+            }
+        });
+    </script>
+</body>
+</html>
