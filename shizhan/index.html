@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,
+      minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>shizhan</title>
+    <script>
+      function initDocumentSize() {
+        var b = document.documentElement.clientWidth;
+        b = b > 750 ? 750 : b;
+        var c = b / 750 * 100;
+        document.getElementsByTagName("html")[0].style.fontSize = c + "px"
+      }
+      initDocumentSize();
+      window.onresize = initDocumentSize;
+    </script>
+  </head>
+
+  <body>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
